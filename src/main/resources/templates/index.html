@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day ❤️</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="hearts-background"></div>
+    <!-- Fixed background image overlay -->
+    <div class="background-overlay show"></div>
+    
+    <div class="container">
+        <header class="hero">
+            <h1 class="fade-in">Will You Be My Valentine?</h1>
+            <h2 class="fade-in-delay" th:text="${girlfriendName}">Lovia Adepa</h2>
+            <div class="heart-icon">💝</div>
+        </header>
+        
+        <section class="question-section">
+            <div class="valentine-question">
+                <p class="question-text">Adepa Lovia, you make every day special...</p>
+                <p class="question-text">Will you be my Valentine? 💕</p>
+                <div class="button-container">
+                    <button class="yes-button" onclick="handleYes()">Yes! 💖</button>
+                    <button class="no-button" id="noButton" onclick="handleNo()">No</button>
+                </div>
+            </div>
+        </section>
+        
+        <div id="celebrationSection" class="celebration-section hidden"></div>
+        
+        <div id="celebrationSection" class="celebration-section hidden">
+        
+        <section class="countdown">
+            <h3>Days Until Valentine's Day</h3>
+            <div class="countdown-number" th:text="${daysUntil}">8</div>
+        </section>
+        
+        <section class="love-letter">
+            <h3>A Message For You</h3>
+            <div class="letter-content">
+                <p>Every moment with you feels like a dream come true.</p>
+                <p>You light up my world in ways I never thought possible.</p>
+                <p>Thank you for being the most amazing person in my life.</p>
+                <p>I love you more than words can express! ❤️</p>
+            </div>
+        </section>
+        
+        <section class="reasons">
+            <h3>Reasons Why I Love You</h3>
+            <div class="reasons-grid">
+                <div class="reason-card">💕 Your beautiful smile</div>
+                <div class="reason-card">🌟 Your kind heart</div>
+                <div class="reason-card">😊 Your amazing laugh</div>
+                <div class="reason-card">✨ The way you care</div>
+                <div class="reason-card">🎵 Our special moments</div>
+                <div class="reason-card">💖 Everything about you</div>
+            </div>
+        </section>
+        
+        <section class="interactive">
+            <button class="love-button" onclick="showLove()">Click for a Surprise! 💝</button>
+            <div id="surprise" class="surprise hidden">
+                <p class="surprise-text">You mean the world to me! 🌍❤️</p>
+            </div>
+        </section>
+        
+        </div>
+    </div>
+    
+    <script th:src="@{/js/script.js}"></script>
+</body>
+</html>

@@ -1,0 +1,369 @@
+/* ========================================
+   RESET & BASIC STYLES
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    /* Remove colored gradient so the photo shows naturally */
+    background: #000;  /* Simple fallback in case image fails to load */
+    min-height: 100vh;
+    color: #fff;
+    overflow-x: hidden;  /* Prevent horizontal scroll */
+}
+
+
+/* ========================================
+   HEARTS BACKGROUND CONTAINER
+   ======================================== */
+
+.hearts-background {
+    position: fixed;  /* Stay in place when scrolling */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;  /* Don't block clicks */
+    z-index: 0;  /* Behind everything */
+}
+
+/* Background image overlay */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/images/lovia.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Show the image fully so it looks "real" */
+    opacity: 1;
+    z-index: 0;
+    transition: opacity 2s ease-in-out;
+    pointer-events: none;
+}
+
+.background-overlay.show {
+    opacity: 1;
+}
+
+
+/* ========================================
+   MAIN CONTAINER
+   ======================================== */
+
+.container {
+    position: relative;
+    z-index: 1;  /* Above hearts background */
+    max-width: 900px;
+    margin: 0 auto;  /* Center the container */
+    padding: 40px 20px;
+}
+
+
+/* ========================================
+   HEADER SECTION
+   ======================================== */
+
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: rgba(255, 255, 255, 0.1);  /* Semi-transparent white */
+    border-radius: 20px;
+    backdrop-filter: blur(10px);  /* Blur effect */
+    margin-bottom: 40px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);  /* Shadow for depth */
+}
+
+.hero h2 {
+    font-size: 2rem;
+    color: #ffb3d9;  /* Pink color for her name */
+    margin-bottom: 30px;
+}
+
+.heart-icon {
+    font-size: 4rem;
+    animation: heartbeat 1.5s infinite;  /* Beating animation */
+}
+
+/* Heartbeat animation */
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    50% { transform: scale(1); }
+}
+
+/* Fade in animations */
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+.fade-in-delay {
+    animation: fadeIn 1.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ========================================
+   QUESTION SECTION (Initial View)
+   ======================================== */
+
+.question-section {
+    text-align: center;
+    padding: 60px 20px;
+    margin-bottom: 40px;
+}
+
+.valentine-question {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 50px 40px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+}
+
+.question-text {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Button container */
+.button-container {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Yes button - big and prominent */
+.yes-button {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    border: none;
+    padding: 20px 50px;
+    font-size: 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 5px 20px rgba(245, 87, 108, 0.5);
+    font-weight: bold;
+}
+
+.yes-button:hover {
+    transform: scale(1.15);  /* Grow on hover */
+    box-shadow: 0 8px 30px rgba(245, 87, 108, 0.7);
+}
+
+/* No button - smaller and less prominent */
+.no-button {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    padding: 15px 35px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.no-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(0.9);  /* Shrink on hover */
+}
+
+
+/* ========================================
+   CELEBRATION SECTION (Shows after Yes)
+   ======================================== */
+
+.celebration-section {
+    animation: slideDown 0.8s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ========================================
+   COUNTDOWN SECTION
+   ======================================== */
+
+.countdown {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 40px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+}
+
+.countdown h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.countdown-number {
+    font-size: 5rem;
+    font-weight: bold;
+    color: #ffb3d9;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+}
+
+
+/* ========================================
+   LOVE LETTER SECTION
+   ======================================== */
+
+.love-letter {
+    background: rgba(255, 255, 255, 0.95);  /* Almost white */
+    color: #333;  /* Dark text */
+    padding: 40px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.love-letter h3 {
+    color: #e91e63;  /* Pink heading */
+    font-size: 2rem;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.letter-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;  /* Space between lines */
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+
+/* ========================================
+   REASONS SECTION
+   ======================================== */
+
+.reasons {
+    margin-bottom: 40px;
+}
+
+.reasons h3 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+/* Grid layout for reason cards */
+.reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.reason-card {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 1.2rem;
+    transition: transform 0.3s, background 0.3s;
+    backdrop-filter: blur(10px);
+}
+
+/* Card lifts up on hover */
+.reason-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+
+/* ========================================
+   SURPRISE BUTTON SECTION
+   ======================================== */
+
+.interactive {
+    text-align: center;
+    padding: 40px;
+}
+
+.love-button {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    border: none;
+    padding: 20px 40px;
+    font-size: 1.3rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.love-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+.surprise {
+    margin-top: 30px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.surprise-text {
+    font-size: 2rem;
+    animation: bounceIn 0.8s;
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+.hidden {
+    display: none;
+}
+
+
+/* ========================================
+   MOBILE RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .hero h2 { font-size: 1.5rem; }
+    .countdown-number { font-size: 3.5rem; }
+    .reasons-grid { grid-template-columns: 1fr; }  /* Stack cards vertically */
+    .button-container { flex-direction: column; }  /* Stack buttons vertically */
+    .question-text { font-size: 1.4rem; }
+}
